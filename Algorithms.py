@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import CountVectorizer as Vectorizer
 
 #Here we create out classifier variables
 GNB= GaussianNB()
-KNN = KNN()
+KNN = KNN(neighbors=3)
 PER = PER()
 
 #Here we create our dataset variables - Marias implementation goes here
