@@ -19,6 +19,7 @@ bookdata = datasets.load_files(bookpath,shuffle=True)
 #Here we create our training and test variables 
 X = bookdata.data
 y = bookdata.target
+print y
 
 split = int(len(X)/2)
 
@@ -45,8 +46,12 @@ PER.predict(X_test)
 
 
 #The output
-print "Accuracy with GNB on iris: %d" % GNB.score(X_test,y_test)
+#print "Accuracy with GNB on iris: %d" % GNB.score(X_test,y_test)
 print "Accuracy with KNN on my_books",KNN.score(X_test,y_test)
 print "Accuracy with PER on my_books",PER.score(X_test,y_test)
+
+#NOTE: GNB is commented out since it does not work with sparse format
+
+
 
 # Here Guanglian takes the output and creates some beautiful graphs!
