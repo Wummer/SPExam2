@@ -33,13 +33,19 @@ X_test = vec.transform(X_test)
 
 
 #### The call #####
-y_pred = GNB.fit(iris.data, iris.target).predict(iris.data)
+#First we fit
+#GNB.fit(X_train, y_train)
 KNN.fit(X_train,y_train)
 PER.fit(X_train,y_train)
 
+#Then we predict
+#GNB.predict(X_test)
+KNN.predict(X_test)
+PER.predict(X_test)
+
 
 #The output
-print "Accuracy with GNB on iris: %d" % ((iris.target != y_pred).sum()/len(iris.target))
+print "Accuracy with GNB on iris: %d" % GNB.score(X_test,y_test)
 print "Accuracy with KNN on my_books",KNN.score(X_test,y_test)
 print "Accuracy with PER on my_books",PER.score(X_test,y_test)
 
