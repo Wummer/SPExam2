@@ -1,0 +1,8 @@
+
+The Full Frame version is just that, the unmatted full frame of the filmed image.  The Widescreen version is simply the full frame matted with black bars to fit a wide theater screen (this is how it was originally shown in theaters).  In two spots the DVD lies about the Full Frame version, saying that it's a Pan A Scan trimming of the Widescreen picture.
+
+(1) The Widescreen/Full Frame menu screen which comes up when the disc boots up and also when you select "Video Setup" from the main menu.  This screen shows a screen capture of a film frame that appears at 19:46 in the movie.  The capture was taken from the Widescreen matted version of the film, and the "Full Frame" image displayed is simply a cropped version of the Widescreen image.
+
+(2) The text "The following film has been modified from its original version.  It has been formatted to fit this screen." which appears before the Full Frame version of the movie is played.
+
+MGM got themselves into trouble for this very same lie on their DVD packaging

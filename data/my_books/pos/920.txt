@@ -1,0 +1,6 @@
+
+When I read Ron Penton's first book, Data Structures for Game Programming, I couldn't wait to see what he did next. MUD Game Programming lived up to all of my expectations, and indeed surpassed them.
+
+The author has an extraordinary knack for making complex topics understandable -- and, equally important, making them interesting. Reading MUD Game Programming is like having a friendly, cheerful expert sitting down next to you and showing you the tricks of the trade. Instead of just telling you what to do, he explains the thinking behind the decisions that go into the design of a complex program such as a MUD server, enabling you to make the decisions that are right for your own project, which might not be the same. You end up with not just knowledge but understanding.
+
+I highly recommend MUD Game Programming to people doing any type of network-based multiplayer programming, not just traditional MUDs. I'd give this book six stars if they'd let me

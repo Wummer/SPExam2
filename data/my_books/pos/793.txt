@@ -1,0 +1,23 @@
+
+
+Businesses cannot exist without the IT and vice-versa. They are interdependent. IT systems automate the business processes and run 24 by 7. Therefore we cannot really view those who work at the "Business" level as above us.  So, I disagree with the author on this point. However, he does sort of make a U turn later on in the book.
+
+This book will make you think. For instance: What is the supply demand for programmers in a particular Business domain? This would be a good question to research so that we can plan our career.
+
+He talks about how to survive layoffs by being knowledgeable in different areas. Not everyone wants to stay in one organization for a long time. Another thing is that it is almost impractical to learn everything in a particular technology (say, Java technology). Developers will have different intentions, for example they might have a backup plan in case of IT downturn, either by having a cash cushion or generating cash flow through software products.
+
+I agree about following your passion. It enables us to transcend limitations. It inspires us and makes us reach a level of performance that amazes us. This explains the previous paragraph (which sounds like excuses).
+
+Another principle that he explains - "Be the Worst" is very real. Two projects, one early in my career where I had the opportunity to work with a strong and talented team of developers and project manager. Recently when I found working for people who were not anywhere near my capabilities, they did affect my performance.
+
+This book helps to see and expect what the work environment could possibly bring us and what we can do to proactively handle these situations.
+
+Maintenance is seen as a menial work and recruiters downplay any experience on it. Oh, this is a developer job...  Chad advises you to learn to love maintenance. 
+
+He recommends having a mentor and I am glad I read his book. I know mentors can also come in the form of a book!!! You can have more than one mentor.
+
+I love the Eight-Hour Burn concept. This explains why I get very depressed and productivity drops during the last few weeks of the project. Now I know how to make the work stay in the office. No more nagging problems following me home!
+
+The concept of "Presence" is very realistic. I learned this by making mistakes in the workplace and the cost was high. I wish I had read this book early in my career. Lot of things that he explains has already happened to me in my career. Still I was able to learn how to handle those situations successfully next time around.
+
+Reading open source code really helps to solve recurring problems quickly. I have experienced this in my job. The cover of this book really needs to be improved. The content of the book is much better than the quality of cover image

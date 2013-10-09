@@ -1,0 +1,10 @@
+
+Having worked with VBScript for a little over four years I am by no means an expert; however, I feel that my experience does give me somewhat of an advanced applied knowledge of scripting. I was pretty skeptical when I saw the word "Advanced" in the title, but this book laid all my concerns to rest in the early chapters.
+
+The book begins with securing (including digital certs and policies) and encoding scripts as well as listing some nice techniques for implementing alternate credentials in WMI and ADSI. For me personally, the real meat and potatoes of the book was the copious information pertaining to working with WSF and WSC files. Don and Jeffrey take the time to detail the reasons behind XML functionality as well as it's application within the scripted files. These guys clear up a lot of questions on these two subjects and how to package your scripts using these technologies. They wrap up the package peice with explanations around HTA's and form controls in HTML scripts.
+
+The book moves on to cover topics such as ADSI and ADO scripting, working with WshController and remote scripts, WMI and WQL classes and techniques, and different applicable real world examples. All this information is then wrapped up with tidbits of using scripting editors to debug, sign, and package your scripts as well the wizards (WMI, ADSI, WSF, etc) and other tools available to make scripting easier.
+
+I've obtained quite a few VBScript books over the years and this one is by far the only one dedicated to truly advanced VBScripting. If you are new to scripting with VBScript, you might want to start with another book geared to learning the methods, properties, classes, etc of the syntax and the technologies it can use. While this book does offer great explanations on advanced topics, you really need to have a solid background in scripting before you read it.
+
+Thumbs up! Highly recommended bang for the buck

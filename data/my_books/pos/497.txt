@@ -1,0 +1,21 @@
+
+Read on if you are:
+
+- Used to PHP programming, but not a very sophisticated programmer.
+- Looking out to do more programming on a higher level.
+- Ready to read through book texts three times and to read further material that is not included in the book you buy.
+
+Schlossnagle's book is not written along one red line, it covers various topics and allows jumping around quite freely. However, the topics that it covers are highly efficient in helping you advance with your programming skills. They might not quite be what you'd expect from a PHP book, because actually Schlossnagle covers  anything that is needed to work with PHP on a professional level.
+Consider this list of topics:
+
+- Write clean code
+- OO-Design Patterns
+- Project documentation
+- Performance tunings
+
+This is all not really PHP-only stuff, but it is a great source of inspiration and furthers the understanding of programming in general very much. The latter I find is necessary for everybody who's up to something bigger in PHP.
+
+The PHP examples in the book are - I have to admit - maybe sometimes rather scarce. One would like to see more applications of abstract problems, more examples. But is that what a book is for, to give examples?
+I don't think so. For me a book is mainly a source of great ideas from great programmers, anything else is available on the web.
+
+After having bought "Advanced PHP Programming" I purchased other books, the topics of which I would not have considered without reading Schlossnagle's work. I'm just about to write a diploma work and the book is a great reference for anything concerning PHP and development projects

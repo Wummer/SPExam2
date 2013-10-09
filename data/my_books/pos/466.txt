@@ -1,0 +1,4 @@
+
+The Challenge/Solution style of these books are great for security beginners as well as seasoned professionals.  If you read carefully you can pick up many hints/tools which you can use in real life security scenarios.
+
+My only -ve comment about this book is its getting out of date now.  Many of the incidents described are not relevant now, as security practices at most firms would thrawt these incidents.  Having said that, the scenarios are still good for security beginners.  For advanced readers I would suggest the Second edition or the soon to be released third edition

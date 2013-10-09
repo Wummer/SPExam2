@@ -1,0 +1,3 @@
+
+As always, Jeffrey's book is worth reading very much. I have read the first version (edition), and I read this one again. If you want to know lots of inside out about CLR, this is the one to read. This is a must-read book before you go for a job interview, because you are expected to have read it by lots of interviewers.
+

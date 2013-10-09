@@ -1,0 +1,10 @@
+
+Many reviewers of this book have given it high marks because it is a terrific tutorial and that introduces most of the crucial techniques for writing great reports. I would agree as I have reporting experience with MS-Access and Crystal and this book helped me get up to speed quickly.  If you like learning in a step-by-step fashion right out of a book - this is the book!
+
+The bad reviews came from people that were looking for more of a reference type book.  While this book is not a bad reference it does fall short as a reference book.  For example,  one reviewer brought up that the ability to shade alternating detail rows of a report does not appear to be easy to find in this book.  I would agree with that. I was unable to go into the index and find a quick solution in this book. 
+
+If you want a better reference book try the WROX book, Professional SQL Server 2005 Reporting Services.  That book is not as good as this book from a step-by-step standpoint but it is a better reference when you need a quick solutions.  For example, page 272 has code on how to shade alternating rows - they call it Greenbar Reports.  It was not easy to find in this book either.  How many people would look up "Greenbar Reports" in the reference?  I was looking into "shading alternative rows".  I just happened to stumble upon it.
+
+I bought both books together.  Of course there is lots of overlap but between the two that is all you will need to become a pro at Reporting Services.
+
+Reporting Services could use a COOKBOOK-style text like they have for Access and other programming languages. Those types of books have served me well over the years. Until then this book and the WROX book should do the trick

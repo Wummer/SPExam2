@@ -1,0 +1,2 @@
+
+This was a defective unit. Got new unit and it works as expected

@@ -1,0 +1,19 @@
+
+There are many books on ARM's architecture or manual references. So far, this book is the only book which concentrates on the firmware development side. Both assembly language and C are discussed, which is a relief for embedded/firmware engineers like me who like to combine both languages in a project.
+The 15 chapters in the book are:
+1- ARM Embedded Systems
+2- ARM Processor Fundamentals
+3- Introduction to the ARM instruction set
+4- Introduction to the Thumb instruction set
+5- Efficient C Programming
+6- Writing and Optimizing ARM assembly code
+7- Optimized Primitives
+8- Digital Signal Processing
+9- Exception and Interrupt Handling
+10- Firmware
+11- Embedded Operating Systems
+12- Cache
+13- Memory Protection Units
+14- Memory Management Units
+15- The Future of the Architecture
+The strength of this book lies on the extensive examples on how to program ARM effectively. It is a nice guide for those who want to learn ARM programming style

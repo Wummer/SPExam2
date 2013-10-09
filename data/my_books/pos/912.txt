@@ -1,0 +1,3 @@
+
+I am an experienced Java programmer. This book together with the NetBeans IDE allowed me to come up with a J2ME application in less than a week. The examples in the book is a great resource for learning to write J2ME applications. I learn best when I'm coding. In my case, I used the source from the PeekAndPick RSS Reader to come up with my J2ME text reader. The program has been heavily modified since, but the book provided sample code that was a great starting point for my learning. 
+

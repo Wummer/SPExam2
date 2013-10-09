@@ -1,0 +1,4 @@
+
+Bruce Schneier offers an excellent 'big picture' overview of the computer security field. From types of attacks, to algorithm security to security in the context of your data center, you get a full overview of the current practices and consequences arising from them. The author argues for security as a process, not a product; security is not something you can add to your product after the fact. Starting from the product specification, down to your last outsourced programmer, security has to permeate your organization for it to work. Building 'attack trees', relying on peer review and enforcing liability are all suggestions advanced by Bruce Schneier. 
+
+Secrets and Lies is a well organized book with plenty of real world examples, problems and solutions. Buy a copy for yourself, and many more for everybody else you know, we will all benefit in the end. 

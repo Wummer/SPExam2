@@ -26,7 +26,7 @@ path2 = ("data/my_electronics/")
 #path3 = ("data/my_dvd/")
 
 data1 = datasets.load_files(path1, shuffle=True)
-data2 = datasets.load_files(path2, shuffle=True) #dataset 2 behaves weird. Throws an error related to unix - windows: \ or /
+data2 = datasets.load_files(path2, shuffle=True) 
 #data3 = datasets.load_files(path3, shuffle=True)
 
 #Here we create our training and test variables 
@@ -75,19 +75,26 @@ X_test2 = vec.transform(X_test2)
 vec.fit(X_train3,y_train3)
 X_train3 = vec.transform(X_train3)
 X_test3 = vec.transform(X_test3)
-
-###dataset 4 digits ###
-digits = datasets.load_digits()
-labels = digits.target
-
-#Here we flatten the image, to turn each image into a 1 dimensional matrix with floats
-n_samples = len(digits.images)	
-imgdata = digits.images.reshape(n_samples, -1)
-
-#here we turn images into sparse format
-#dataset4 = coo_matrix((labels,(digits)),shape=-1) #doesn't work
 """
-###dataset 5: 20 newsgroups###
+###dataset 4 20 newsgroups: 3 diffent topics ###
+cats4 = ["sci.space", "misc.forsale","rec.sport.baseball"]
+
+train4 = datasets.fetch_20newsgroups(subset="train", shuffle=True,categories=cats4, remove=('headers', 'footers', 'quotes'))
+test4 = datasets.fetch_20newsgroups(subset="test", shuffle=True,categories=cats4, remove=('headers', 'footers', 'quotes'))
+#naming features and labels
+y_train4 = train4.target
+y_test4 = test4.target
+X_train4 = train4.data
+X_test4 = test4.data
+
+vec.fit(X_train4,y_train4)
+vec.fit(X_test4,y_test4)
+
+X_train4 = vec.transform(X_train4)
+X_test4 = vec.transform(X_test4)
+
+"""
+###dataset 5: 20 newsgroup: 3 religion debates###
 cats = ["alt.atheism", "soc.religion.christian","talk.religion.misc"]
 
 train5 = datasets.fetch_20newsgroups(subset="train", shuffle=True,categories=cats, remove=('headers', 'footers', 'quotes'))
@@ -105,7 +112,6 @@ X_train5 = vec.transform(X_train5)
 X_test5 = vec.transform(X_test5)
 
 
-"""
 #### The call #####
 
 KNN.fit(X_train1, y_train1)
@@ -119,11 +125,15 @@ PER.fit(X_train2, y_train2)
 KNN.fit(X_train3, y_train3)
 PER.fit(X_train3, y_train3)
 """
+KNN.fit(X_train4, y_train4)
+PER.fit(X_train4, y_train4)
+"""
+
 KNN.fit(X_train5, y_train5)
 PER.fit(X_train5, y_train5)
 
 #The output
-"""
+
 print "Accuracy with KNN on dataset1",KNN.score(X_test1, y_test1) 
 #it throws an error related to different number of features in X_test1 and y_test1. But they should be the same and my_books works in Alex' code.  I might have mixed up some variables somewhere
 print "Accuracy with PER on dataset1",PER.score(X_test1, y_test1)
@@ -136,5 +146,9 @@ print "Accuracy with PER on dataset2",PER.score(X_test2, y_test2)
 print "Accuracy with KNN on dataset3",KNN.score(X_test3, y_test3)
 print "Accuracy with PER on dataset3",PER.score(X_test3, y_test3)
 """
-print "Accuracy with KNN on newgroup",KNN.score(X_test5, y_test5) #this one does not work because there are different number of features in the vectorized variables of train and test. I can't really figure out why it matters. 
-print "Accuracy with PER on newsgroup",PER.score(X_test5, y_test5)
+print "Accuracy with KNN on dataset4",KNN.score(X_test4, y_test4) 
+print "Accuracy with PER on dataset4",PER.score(X_test4, y_test4)
+"""
+print "Accuracy with KNN on dataset5",KNN.score(X_test5, y_test5) 
+print "Accuracy with PER on dataset5",PER.score(X_test5, y_test5)
+"""

@@ -1,0 +1,2 @@
+
+This adapter can not be used with the Garmin 330

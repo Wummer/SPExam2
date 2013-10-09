@@ -1,0 +1,2 @@
+
+This book is the right choice for beginers and advanced users of Spring. It covers all major aspects supported by the framework, and goes beyond than a "24 hours learning" book. Emphasizes the basic theory and shows how to correctly use the framework in J2EE applications

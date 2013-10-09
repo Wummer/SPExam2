@@ -1,0 +1,8 @@
+
+The use of an Integrated Development Environment [IDE] for a user to learn a language in, and to then program within, is well known. Microsoft has made powerful IDEs for its languages. And the open source Eclipse can be used for Java. Along these lines, Ducasse offers his book. It teaches Smalltalk using the Squeak IDE. 
+
+The twist is that Squeak uses the visual metaphors of robots and robot factory, to convey the crucial concepts of objects/classes. As Ducasse explains, Squeak can be directed at an audience that is perhaps of high school age or even younger. So a clear visual feedback between example code and what the student sees then happen is vital, given her limited background and possibly limited attention span. 
+
+Squeak uses Smalltalk in part because that is a very minimalist language. If you come from C++, Java or C#, you may be struck by its simplicity, compared to the oodles of classes and notational intricacies of those languages. Which of course also makes it easier for a young student to learn Smalltalk or Squeak itself.
+
+I wonder a little about the book itself, though. A motivated high school student could easily use it. But for some younger students? In that situation, it may well be that the book could be best directed at a teacher, who can then instruct from it

@@ -1,0 +1,26 @@
+
+Have you ever been tempted to write pure nonsense?  Maybe on some rainy first day of April?  I once felt like writing:
+
+"I sure made a mistake when I told the Goddess Minerva that She couldn't square the circle.  In response, She drew a circle next to me, a truly beautiful and perfect circle.  And right in front of my panicky brown eyes, She turned pi into four!  Not just the circumference divided by the diameter, but the series expansion as an inverse tangent as well.  What would She do next, make me unwell by dropping the first letter from my first name?  i tried to apologize, but it was too late."  
+
+I was not the only one to dream of mangling pi.  In "Contact: A Novel," Carl Sagan went me one better when he had aliens send messages to each other at infinite speed by hiding them in a numerical representation of pi and then, you guessed it, changing pi everywhere!
+
+Still, Alan Sokal went beyond even this, getting the following published in the journal "Social Text:"
+
+"In this way the infinite-dimensional invariance group erodes the distinction between the observer and the observed; the pi of Euclid and the G of Newton, formerly thought to be constant and universal, are now perceived in their ineluctable historicity; and the putative observer becomes fatally decentered, disconnected from any epistemic link to a spacetime point that can no longer be defined by geometry alone."  
+
+Sokal put this and many more whoppers into his hoax, which defended an equally absurd thesis: that "physical 'reality,' no less than social 'reality,' is at bottom a social and linguistic construct."  
+
+While this joke may not prove much, it does raise the issue of whether a few people in academia are misusing the vocabulary of science to create absurd statements in defense of an antirationalist point of view.  This book shows that they are.  
+
+The authors show that Jacques Lacan makes completely arbitrary analogies between topology and psychoanalysis.  We then see some of the same irrelevance and superficial use of topology in the early works of Julia Kristeva.  After an interlude in which Sokal and Bricmont seriously discuss the philosophy of science, there are more examples of academic nonsense.  The next victim is Luce Irigaray, who in what I agree is about as ridiculously antifeminist a statement as one could make says:
+
+"Science always displays certain choices, certain exclusions, and these are particularly determined by the sex of the scholars involved."
+
+That's rich: objective truth is different depending on whether one is a Woman or a man!   I must admit that I half expected Irigaray to say that pi was different for Men and women.
+
+After that, we see Bruno Latour's idea that Einstein's Theory of Relativity has implications for sociology.  The authors point out that this is manifest nonsense.  Were we to discover tomorrow that the ratio of the mass of a particle to its energy were slightly different from what relativity predicted, there would be a revolution in physics, but no need to alter theories of human behavior.  
+
+Later, we see Jean Baudrillard say, "It is a sign that the space of the event has become a hyperspace with multiple refractivity, and that the space of war has become definitively non-Euclidean."  And there are more, um, words, from Gilles Deleuze, Felix Guattari, and Paul Virilio.  
+
+Sokal and Bricmont conclude that all this inanity is a threat.  That either it will lead to even more irrationalism in academia or to an academic abandonment of social critique.  And I think it's worth warning us to avoid such a future.  But I also think we simply need social journals to get scientists to review (and reject) papers that use big scientific words instead of making coherent statements

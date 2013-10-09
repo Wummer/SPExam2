@@ -1,0 +1,2 @@
+
+If you wish to improve the Quality of your software development, this book is worth reading, studying, and questioning.  It realy does not tell you how or why to improve, but suggest processes and measures that you need to  concider if you are already commited to better software

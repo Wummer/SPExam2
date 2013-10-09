@@ -1,0 +1,4 @@
+
+I took the 2 Tom Cover's classes in Information Theory at Stanford last year. We used this book as the text for both classes. The first class covered roughly the first 8 chapters and the second class the remaining ones. This book assumes that the reader has a clear understanding of basic probability theory.
+
+Tom's classes were among the most enjoyable I took last year and I recommend this text to anyone interested in knowing about Information Theory. If you just want to know the basics, read through chapters 1-8. The reader interested in understanding the power of information theory is adviced to read the whole book. A final comment, it is clear to me after my experience with Tom's classes that mastering Information Theory is a daunting task. And in fact, this book provides the interested researcher just with the basic knowledge needed to enter the field

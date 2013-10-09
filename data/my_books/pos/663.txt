@@ -1,0 +1,6 @@
+
+    I have just finished my sophomore year in college and in my first course relating to information and computer security we used this book. I would recommend it to anybody who is interested in getting into the rapidly expanding field of infosec. 
+     As they say with the CISSP certification, it is an "inch deep and a mile wide". This book covers many, many topics however it is really intended to be an introduction to these concepts.
+     It gave me a good overview of information security concepts and prepared me for senior level Infosec courses as well as preparation for graduate school.
+
+*Note that preparation for the CISSP exam would require much more then just this book

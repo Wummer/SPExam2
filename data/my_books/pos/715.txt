@@ -1,0 +1,10 @@
+
+Design is a difficult process that is often associated more with art than science.  With principles of style, concerns about how design works.
+
+While many wring their hands about this, Alexander breaks the problem down, organizes it and then provides a framework for design that is relatively design neutral.  That is a feat in deed.  
+
+By thinking about how one structures a problem space and the bias that creates -- Alexander give the practioner a powerful tool for setting up the design process and scope.  He then goes on to discuss the design process and he makes important distinctions between concious and unconcious design.  
+
+Notes on Synthesis and Form are the foundation for Alexander's work on design patterns.  This is the must read book before spending time on these other works.
+
+For the practioner, this book provides a powerful and applicable framework for addressing problems in multiple disciplines.

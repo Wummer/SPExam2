@@ -1,0 +1,2 @@
+
+For those looking to dig deeper into the nuances of the C language, this is an excellent book!  It has given me a better understanding of C that is helping me design better C code.  A must have
