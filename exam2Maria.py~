@@ -1,0 +1,47 @@
+#coding: utf-8
+import sklearn
+import glob
+import numpy
+from sklearn import datasets
+from sklearn.feature_extraction.text import CountVectorizer 
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.datasets import load_files
+
+#here we open our 5 datasets
+
+dataset1 = glob.glob("data/my_books/*/*.txt")
+dataset2 = glob.glob("data/my_electronics/*/*.txt")
+dataset3 = glob.glob("data/my_dvd/*/*.txt")
+dataset4 = datasets.load_digits()
+
+files1 = load_files("data/my_books/")
+# print type(x) <class 'sklearn.datasets.base.Bunch'>
+
+vectorizer = CountVectorizer()
+features1 = vectorizer.fit_transform(files1)
+print features1.shape
+"""
+folders = glob.glob("data")
+
+data = [datasets.load_files(f) for f in folders]
+
+for elem in data:
+    textdata = []
+    textdata = elem
+    bow = textdata.load_files
+"""
+
+#dataset 5
+cats = ["alt.atheism", "soc.religion.christian","talk.religion.misc"]
+Inbuilt = True
+train5=datasets.fetch_20newsgroups(subset="train", shuffle=True,categories=cats)
+test5=datasets.fetch_20newsgroups(subset="test", shuffle=True, categories=cats)
+
+y_train5, y_test5 = train5.target, test5.target
+vectorizer = CountVectorizer()
+X_train5 = vectorizer.fit_transform(train5.data)
+X_test5=vectorizer.fit_transform(test5.data)
+
+print X_train5.shape
+print X_test5.shape
+
