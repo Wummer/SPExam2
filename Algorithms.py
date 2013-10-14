@@ -6,7 +6,7 @@ from sklearn import datasets
 from sklearn.feature_extraction.text import CountVectorizer as Vectorizer
 from sklearn.datasets import fetch_20newsgroups
 from scipy.sparse import coo_matrix
-from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import LinearSVC as SVC
 from sklearn.neighbors import KNeighborsClassifier as KNN
 from sklearn.linear_model import Perceptron as PER
 
@@ -19,15 +19,14 @@ from sklearn.linear_model import Perceptron as PER
 		 |												  |
 		  ------------------------------------------------
 """
- #Here we create our classifier variables
-GNB= GaussianNB()
-KNN = KNN(neighbors=3)
+ #Here we create our function variables
+KNN = KNN(n_neighbors=1)
 PER = PER()
+SVC = SVC()
 vec = Vectorizer()
 
-prepared_data = []
-
-algos = [KNN, PER]
+#The list of algorithms
+algos = [KNN, PER, SVC]
 
 #Here we open 3 file data and 2 datasets from SKlearn
 path1 = ("data/my_books/")
@@ -49,8 +48,6 @@ paths = [path1, path2, path3, cats4, cats5]
 		  ------------------------------------------------
 """
 
-
-########## Loading and preparing our datasets ###########
 #Here we wish to load our data and prepare it for 
 def preparedata(paths):
 	training = []
@@ -88,59 +85,46 @@ def preparedata(paths):
 
 	return training,testing
 
-########## End of loading and preparing ###########
 
+"""
+		  ------------------------------------------------
+		 |												  |
+		 |			DEFINING WHAT OUR ALGORITHMS	      |
+		 |			SHOULD RUN ON AND IN WHAT ORDER		  |
+		 |												  |
+		  ------------------------------------------------
+"""
 
-
-########## Running the algorithms ##########
 
 def runalgos(train,test,algo):
-	print derp
+	results = []
+	assert len(train) == len(test)
+	#since our train and test input are a list of their data with the labels in the next index we can split
+	X_train = train[::2]
+	y_train = train[1::2]
+	X_test = test[::2]
+	y_test = test[1::2]
 
-"""
+	#Iterate over every training set
+	for i in range(len(X_train)):
+		result =[]
+		print "Dataset:",i+1
 
-#### The call #####
+		#Here we run every algorithm on every dataset
+		for a in algo:
+			r = []
+			a.fit(X_train[i],y_train[i])
+			r = a.score(X_test[i],y_test[i])
+			print "Accuracy on dataset",i+1,":\t",r #KNN -> PER -> SVC
+			#Here we create a single list of the specific datasets with their results
+			result.append(r)
 
-KNN.fit(X_train1, y_train1)
-PER.fit(X_train1, y_train1)
+ 		print "\n -------------------------------------------"
+		#We then append said list to another list, effectively making it a list of lists with every list containing a dataset's results 
+		results.append(result)
 
+	return results
 
-KNN.fit(X_train2, y_train2)
-PER.fit(X_train2, y_train2)
-
-
-KNN.fit(X_train3, y_train3)
-PER.fit(X_train3, y_train3)
-
-KNN.fit(X_train4, y_train4)
-PER.fit(X_train4, y_train4)
-
-
-KNN.fit(X_train5, y_train5)
-PER.fit(X_train5, y_train5)
-
-#The output
-
-print "Accuracy with KNN on dataset1",KNN.score(X_test1, y_test1) 
-#it throws an error related to different number of features in X_test1 and y_test1. But they should be the same and my_books works in Alex' code.  I might have mixed up some variables somewhere
-print "Accuracy with PER on dataset1",PER.score(X_test1, y_test1)
-
-
-print "Accuracy with KNN on dataset2",KNN.score(X_test2, y_test2)
-print "Accuracy with PER on dataset2",PER.score(X_test2, y_test2)
-
-
-print "Accuracy with KNN on dataset3",KNN.score(X_test3, y_test3)
-print "Accuracy with PER on dataset3",PER.score(X_test3, y_test3)
-
-print "Accuracy with KNN on dataset4",KNN.score(X_test4, y_test4) 
-print "Accuracy with PER on dataset4",PER.score(X_test4, y_test4)
-
-print "Accuracy with KNN on dataset5",KNN.score(X_test5, y_test5) 
-print "Accuracy with PER on dataset5",PER.score(X_test5, y_test5)
-"""
-
-#### The call #####
 """
 		  ------------------------------------------------
 		 |												  |
@@ -148,11 +132,23 @@ print "Accuracy with PER on dataset5",PER.score(X_test5, y_test5)
 		 |												  |
 		  ------------------------------------------------
 """
+
 print "Loading and preparing the data."
 prepared_data = preparedata(paths)
 prepared_train,prepared_test = prepared_data[0],prepared_data[1]
 print "Done."
 
 print "Running the data on the algorithms \n -------------------------------------------"
-KNN.fit(prepared_train[0],prepared_train[1])
-print "Accuracy with KNN on dataset1",KNN.score(prepared_test[0], prepared_test[1]) 
+fullacc = runalgos(prepared_train,prepared_test,algos)
+
+#fullacc has the order: [[KNN on data1,PER on data1,SVC on data1],[KNN on data2,PER on data2, SVC on data2] etc.]
+
+
+
+"""
+		  ------------------------------------------------
+		 |												  |
+		 |			FANCY GRAPHS GO HERE  			      |
+		 |												  |
+		  ------------------------------------------------
+"""
