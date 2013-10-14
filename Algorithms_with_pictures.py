@@ -67,7 +67,7 @@ print "Accuracy with PER on my_books",PER.score(X_test,y_test)
 
 # Draw the bar graph
 
-Results = [[0.45, 0.65],[0.34, 0.66],[0.47, 0.55],[0.66, 0.86],[0.43, 0.67]]
+results = [[0.45, 0.65, 0.76],[0.34, 0.66, 0.67],[0.47, 0.55, 0.87],[0.66, 0.86, 0.80],[0.43, 0.67, 0.87]]
 
 N = 5
 
@@ -75,13 +75,16 @@ ind = np.arange(N)  # the x locations for the groups
 width = 0.35       # the width of the bars
 resultKNN=[]
 resultPER=[]
+resultSVC=[]
 for i in range(0,5):
-    resultKNN.append(Results[i][0])
-    resultPER.append(Results[i][1])
+    resultKNN.append(results[i][0])
+    resultPER.append(results[i][1])
+    resultSVC.append(results[i][2])
 
 fig, ax = plt.subplots()
-rects1 = ax.bar(ind, resultKNN, width, color='r')#, yerr=menStd
-rects2 = ax.bar(ind+width,resultPER, width, color='y')#, yerr=womenStd
+rects1 = ax.bar(ind, resultKNN, width, color='r')
+rects2 = ax.bar(ind+width,resultPER, width, color='y')
+rects3 = ax.bar(ind+2*width, retultSVC, witdt, color='b') 
 
 ax.set_ylabel('Accurancy')
 ax.set_title('Accurancy Result')
@@ -89,14 +92,14 @@ ax.set_ylim(0,1)
 ax.set_xticks(ind+width)
 
 ax.set_xticklabels(('Dataset 1', 'Dataset 2', 'Dataset 3', 'Dataset 4', 'Dataset 5'))
-ax.legend( (rects1[0], rects2[0]), ('KNearestneighbor', 'Perceptron'), loc='best' )
-
+ax.legend( (rects1[0], rects2[0]), ('KNearestneighbor', 'Perceptron', 'Support Vector Classifier), loc='best' )
+"""
 learningresults = [
-[[0.21, 0.34, 0.56, 0.65, 0.71],[0.02, 0.034, 0.56, 0.65, 0.71]]
-[[0.12, 0.32, 0.53, 0.64, 0.77],[0.02, 0.034, 0.56, 0.65, 0.71]]
-[[0.25, 0.36, 0.50, 0.66, 0.88],[0.02, 0.034, 0.56, 0.65, 0.71]]
-[[0.26, 0.34, 0.56, 0.65, 0.71],[0.02, 0.034, 0.56, 0.65, 0.71]]
-[[0.36, 0.44, 0.66, 0.75, 0.81],[0.02, 0.037, 0.51, 0.61, 0.76]]
+[[0.21, 0.34, 0.56, 0.65, 0.71],[0.02, 0.034, 0.56, 0.65, 0.71],[0.02, 0.034, 0.56, 0.65, 0.71]]
+[[0.12, 0.32, 0.53, 0.64, 0.77],[0.02, 0.034, 0.56, 0.65, 0.71],[0.02, 0.034, 0.56, 0.65, 0.71]],
+[[0.25, 0.36, 0.50, 0.66, 0.88],[0.02, 0.034, 0.56, 0.65, 0.71],[0.02, 0.034, 0.56, 0.65, 0.71]],
+[[0.26, 0.34, 0.56, 0.65, 0.71],[0.02, 0.034, 0.56, 0.65, 0.71],[0.02, 0.034, 0.56, 0.65, 0.71]],
+[[0.36, 0.44, 0.66, 0.75, 0.81],[0.02, 0.037, 0.51, 0.61, 0.76],[0.02, 0.034, 0.56, 0.65, 0.71]]
 ]
 
 # Draw the line graph
@@ -114,7 +117,7 @@ lines2=plt.plot([100,200,300,400],result2, 'k')
 plt.axis([100,500,0,1])
 plt.setp(lines2,color='b',linewidth=5.0)
 plt.show()
-"""
+
 
 
 
