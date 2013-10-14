@@ -160,17 +160,3 @@ print "Accuracy with PER on dataset5",PER.score(X_test5, y_test5)
 """
 
 Results = [[0.45, 0.65],[0.34, 0.66],[0.47, 0.55],[0.66, 0.86],[0.43, 0.67]]
-
-def Barplot_results(results):
-    i = 0
-    j = 0
-    datasetnumber = 1
-    barplotlabels = [KNN, PER] 
-    for results[i][j]:
-        plot results[i][j]
-        j = j+1
-        figurename = "Dataset "+datasetnumber
-        barlabel =  barplotlabels[0]
-        plot results[i][j]
-        barplotlabels = barplotlabels[1] 
-        datasetnumber = datasetnumber+=1        
