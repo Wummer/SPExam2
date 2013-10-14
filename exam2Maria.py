@@ -15,7 +15,7 @@ GNB= GaussianNB()
 KNN = KNN(neighbors=3)
 PER = PER()
 vec = Vectorizer()
-
+"""
 ####Preparing datasets#####
 # no fancy for-loop, but it seems to  works for dataset 1  - except For dataset2 and 3: see notes below
 
@@ -41,7 +41,7 @@ split = int(len(X1)/2)
 X_train1, X_test1 = X1[:split], X1[split:]
 y_train1, y_test1 = y1[:split], y1[split:]
 
-"""
+
 #dataset 2
 X2 = data2.data
 y2 = data2.target
@@ -75,17 +75,20 @@ X_test2 = vec.transform(X_test2)
 vec.fit(X_train3,y_train3)
 X_train3 = vec.transform(X_train3)
 X_test3 = vec.transform(X_test3)
-"""
+
 ###dataset 4 20 newsgroups: 3 diffent topics ###
 cats4 = ["sci.space", "misc.forsale","rec.sport.baseball"]
 
 train4 = datasets.fetch_20newsgroups(subset="train", shuffle=True,categories=cats4, remove=('headers', 'footers', 'quotes'))
+#making sure that the trainset is the same size for all datasets
+train4 = train4[:1400]
 test4 = datasets.fetch_20newsgroups(subset="test", shuffle=True,categories=cats4, remove=('headers', 'footers', 'quotes'))
 #naming features and labels
 y_train4 = train4.target
 y_test4 = test4.target
 X_train4 = train4.data
 X_test4 = test4.data
+
 
 vec.fit(X_train4,y_train4)
 vec.fit(X_test4,y_test4)
@@ -98,6 +101,8 @@ X_test4 = vec.transform(X_test4)
 cats = ["alt.atheism", "soc.religion.christian","talk.religion.misc"]
 
 train5 = datasets.fetch_20newsgroups(subset="train", shuffle=True,categories=cats, remove=('headers', 'footers', 'quotes'))
+#making sure that the trainset is the same size for all datasets
+train5 = train5[:1400]
 test5 = datasets.fetch_20newsgroups(subset="test", shuffle=True,categories=cats, remove=('headers', 'footers', 'quotes'))
 #naming features and labels
 y_train5 = train5.target
@@ -105,13 +110,15 @@ y_test5 = test5.target
 X_train5 = train5.data
 X_test5 = test5.data
 
+print len(X_train5)
+print len(X_test5)
 vec.fit(X_train5,y_train5)
 vec.fit(X_test5,y_test5)
 
 X_train5 = vec.transform(X_train5)
 X_test5 = vec.transform(X_test5)
 
-
+"""
 #### The call #####
 
 KNN.fit(X_train1, y_train1)
@@ -124,16 +131,15 @@ PER.fit(X_train2, y_train2)
 
 KNN.fit(X_train3, y_train3)
 PER.fit(X_train3, y_train3)
-"""
+
 KNN.fit(X_train4, y_train4)
 PER.fit(X_train4, y_train4)
-"""
+
 
 KNN.fit(X_train5, y_train5)
 PER.fit(X_train5, y_train5)
 
 #The output
-
 print "Accuracy with KNN on dataset1",KNN.score(X_test1, y_test1) 
 #it throws an error related to different number of features in X_test1 and y_test1. But they should be the same and my_books works in Alex' code.  I might have mixed up some variables somewhere
 print "Accuracy with PER on dataset1",PER.score(X_test1, y_test1)
@@ -145,10 +151,26 @@ print "Accuracy with PER on dataset2",PER.score(X_test2, y_test2)
 
 print "Accuracy with KNN on dataset3",KNN.score(X_test3, y_test3)
 print "Accuracy with PER on dataset3",PER.score(X_test3, y_test3)
-"""
+
 print "Accuracy with KNN on dataset4",KNN.score(X_test4, y_test4) 
 print "Accuracy with PER on dataset4",PER.score(X_test4, y_test4)
-"""
+
 print "Accuracy with KNN on dataset5",KNN.score(X_test5, y_test5) 
 print "Accuracy with PER on dataset5",PER.score(X_test5, y_test5)
 """
+
+Results = [[0.45, 0.65],[0.34, 0.66],[0.47, 0.55],[0.66, 0.86],[0.43, 0.67]]
+
+def Barplot_results(results):
+    i = 0
+    j = 0
+    datasetnumber = 1
+    barplotlabels = [KNN, PER] 
+    for results[i][j]:
+        plot results[i][j]
+        j = j+1
+        figurename = "Dataset "+datasetnumber
+        barlabel =  barplotlabels[0]
+        plot results[i][j]
+        barplotlabels = barplotlabels[1] 
+        datasetnumber = datasetnumber+=1        
