@@ -84,7 +84,29 @@ def preparedata(paths):
 		testing += X_test, y_test
 
 	return training,testing
+"""
+#Here we create the split function that we need for the learning curve
+def learningsplit(training):
+	lresults = []
+	ltraining = []
+	splits = [100,200,400,800,1400]
 
+	for split in splits:
+		X_train = training[::2]
+		y_train = training[1::2]
+		X_train = X_train[:split]
+		y_train = y_train[:split]
+
+		for i in range(len(X_train)):
+			ltraining.append(X_train[i])
+			ltraining.append(y_train[i])
+			print ltraining
+
+		r = runalgos(ltraining,prepared_test,algos)
+		lresults.append(r)
+
+	return lresults
+"""
 
 """
 		  ------------------------------------------------
@@ -96,9 +118,8 @@ def preparedata(paths):
 """
 
 
-def runalgos(train,test,algo):
+def runalgos(train,test,algos):
 	results = []
-	assert len(train) == len(test)
 	#since our train and test input are a list of their data with the labels in the next index we can split
 	X_train = train[::2]
 	y_train = train[1::2]
@@ -111,7 +132,7 @@ def runalgos(train,test,algo):
 		print "Dataset:",i+1
 
 		#Here we run every algorithm on every dataset
-		for a in algo:
+		for a in algos:
 			r = []
 			a.fit(X_train[i],y_train[i])
 			r = a.score(X_test[i],y_test[i])
@@ -138,11 +159,14 @@ prepared_data = preparedata(paths)
 prepared_train,prepared_test = prepared_data[0],prepared_data[1]
 print "Done."
 
-print "Running the data on the algorithms \n -------------------------------------------"
+print "Running the algorithms on the data \n -------------------------------------------"
 fullacc = runalgos(prepared_train,prepared_test,algos)
-
+print "Done."
+"""
+learningresults = learningsplit(prepared_data)
+print learningresults
 #fullacc has the order: [[KNN on data1,PER on data1,SVC on data1],[KNN on data2,PER on data2, SVC on data2] etc.]
-
+"""
 
 
 """
