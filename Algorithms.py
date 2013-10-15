@@ -50,63 +50,48 @@ paths = [path1, path2, path3, cats4, cats5]
 
 #Here we wish to load our data and prepare it for 
 def preparedata(paths):
-	training = []
-	testing = []
-	for p in paths:
-		train =[]
-		test = []
-
-		#First we check whether our input is from local files
-		if type(p) == str:
-			d = datasets.load_files(p, shuffle=True)
-			X = d.data
-			y = d.target
-			#Here we split the data
-			X_train, X_test = X[:1400],X[1400:]
-			y_train, y_test = y[:1400],y[1400:]
-
-		#If it isn't, we assume it's from SKlearn 20newsgroups with more than 1 category
-		else:
-			train = datasets.fetch_20newsgroups(subset="train", shuffle=True,categories=p, remove=('headers', 'footers', 'quotes'))
-			test = datasets.fetch_20newsgroups(subset="test", shuffle=True,categories=p, remove=('headers', 'footers', 'quotes'))
-			y_train,y_test = train.target,test.target
-			X_train,X_test = train.data,test.data
-			#Here we split the training data 
-			y_train = y_train[:1400]
-			X_train = X_train[:1400]
-
-		#Here we fit and transform the data into binary features
-		vec.fit(X_train,y_train)
-		X_train = vec.transform(X_train)
-		X_test = vec.transform(X_test)
-
-		training += X_train,y_train
-		testing += X_test, y_test
-
-	return training,testing
-"""
-#Here we create the split function that we need for the learning curve
-def learningsplit(training):
-	lresults = []
-	ltraining = []
-	splits = [100,200,400,800,1400]
-
+	ftraining =[]
+	ftesting = []
+	splits = [100, 200, 400, 800,1400]
 	for split in splits:
-		X_train = training[::2]
-		y_train = training[1::2]
-		X_train = X_train[:split]
-		y_train = y_train[:split]
+		training = []
+		testing = []
 
-		for i in range(len(X_train)):
-			ltraining.append(X_train[i])
-			ltraining.append(y_train[i])
-			print ltraining
+		for p in paths:
+			train =[]
+			test = []
 
-		r = runalgos(ltraining,prepared_test,algos)
-		lresults.append(r)
+			#First we check whether our input is from local files
+			if type(p) == str:
+				d = datasets.load_files(p, shuffle=True)
+				X = d.data
+				y = d.target
+				#Here we split the data
+				X_train, X_test = X[:split],X[1400:]
+				y_train, y_test = y[:split],y[1400:]
 
-	return lresults
-"""
+			#If it isn't, we assume it's from SKlearn 20newsgroups with more than 1 category
+			else:
+				train = datasets.fetch_20newsgroups(subset="train", shuffle=True,categories=p, remove=('headers', 'footers', 'quotes'))
+				test = datasets.fetch_20newsgroups(subset="test", shuffle=True,categories=p, remove=('headers', 'footers', 'quotes'))
+				y_train,y_test = train.target,test.target
+				X_train,X_test = train.data,test.data
+				#Here we split the training data 
+				y_train = y_train[:split]
+				X_train = X_train[:split]
+
+			#Here we fit and transform the data into binary features
+			vec.fit(X_train,y_train)
+			X_train = vec.transform(X_train)
+			X_test = vec.transform(X_test)
+			#Here we collect the results for each split on all datasets with all algos
+			training += X_train,y_train
+			testing += X_test, y_test
+
+		ftraining.append(training)
+		ftesting.append(testing)
+
+	return ftraining,ftesting
 
 """
 		  ------------------------------------------------
@@ -119,32 +104,38 @@ def learningsplit(training):
 
 
 def runalgos(train,test,algos):
-	results = []
-	#since our train and test input are a list of their data with the labels in the next index we can split
-	X_train = train[::2]
-	y_train = train[1::2]
-	X_test = test[::2]
-	y_test = test[1::2]
+	fresults = []
 
-	#Iterate over every training set
-	for i in range(len(X_train)):
-		result =[]
-		print "Dataset:",i+1
+	for s in range(len(train)):
+		#since our train and test input are a list of their data with the labels in the next index we can split
+		X_train = train[s][::2]
+		y_train = train[s][1::2]
+		X_test = test[s][::2]
+		y_test = test[s][1::2]
+		results = []
+		print "\n********	***** Split:",s+1,"***************\n"
 
-		#Here we run every algorithm on every dataset
-		for a in algos:
-			r = []
-			a.fit(X_train[i],y_train[i])
-			r = a.score(X_test[i],y_test[i])
-			print "Accuracy on dataset",i+1,":\t",r #KNN -> PER -> SVC
-			#Here we create a single list of the specific datasets with their results
-			result.append(r)
+		#Iterate over every training set
+		for i in range(len(X_train)):
+			result =[]
+			print "Dataset:",i+1
 
- 		print "\n -------------------------------------------"
-		#We then append said list to another list, effectively making it a list of lists with every list containing a dataset's results 
-		results.append(result)
+			#Here we run every algorithm on every dataset
+			for a in algos:
+				r = []
+				a.fit(X_train[i],y_train[i])
+				r = a.score(X_test[i],y_test[i])
+				print "Accuracy on dataset",i+1,":\t",r #KNN -> PER -> SVC
+				#Here we create a single list of the specific datasets with their results
+				result.append(r)
 
-	return results
+	 		print "\n--------------------------------------"
+			#We then append said list to another list, effectively making it a list of lists with every list containing a dataset's results 
+			results.append(result)
+		#And a list of lists of lists! ([[[Algos on n-data]split]all]
+		print "\n======================================"
+		fresults.append(results)
+	return fresults
 
 """
 		  ------------------------------------------------
@@ -159,15 +150,10 @@ prepared_data = preparedata(paths)
 prepared_train,prepared_test = prepared_data[0],prepared_data[1]
 print "Done."
 
-print "Running the algorithms on the data \n -------------------------------------------"
-fullacc = runalgos(prepared_train,prepared_test,algos)
+print "Running the algorithms on the data \n--------------------------------------------"
+fullacc = runalgos(prepared_train,prepared_test,algos) #list of list of lists: If you want KNN on dataset1 from split 400 then write: fullacc[2][0][0]
 print "Done."
-"""
-learningresults = learningsplit(prepared_data)
-print learningresults
-#fullacc has the order: [[KNN on data1,PER on data1,SVC on data1],[KNN on data2,PER on data2, SVC on data2] etc.]
-"""
-
+print fullacc[2][0][0]
 
 """
 		  ------------------------------------------------
