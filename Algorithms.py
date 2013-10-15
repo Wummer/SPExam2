@@ -3,6 +3,7 @@ import sklearn
 import glob
 import numpy
 from sklearn import datasets
+from scipy.stats import wilcoxon
 from sklearn.feature_extraction.text import CountVectorizer as Vectorizer
 from sklearn.datasets import fetch_20newsgroups
 from scipy.sparse import coo_matrix
@@ -25,8 +26,14 @@ PER = PER()
 SVC = SVC()
 vec = Vectorizer()
 
-#The list of algorithms
+#The list of algorithms for runalgos()
 algos = [KNN, PER, SVC]
+
+#Variables needed for wilcoxon
+KNN_results = []
+PER_results = []
+SVC_results = []
+interval = [0,5,10,15,20]
 
 #Here we open 3 file data and 2 datasets from SKlearn
 path1 = ("data/my_books/")
@@ -137,10 +144,23 @@ def runalgos(train,test,algos):
 		fresults.append(results)
 	return fresults
 
+
+def wilcox(dictresult,interval):
+	#Here we print the p-value for the entire result
+	for key,value in dictresult.items():
+		print "Paired wilcoxon-test with ",key,":\t",wilcoxon(value[0],value[1])
+
+	#Here we print the p-value for every learning split
+	for inte in interval:
+		for key,value in dictresult.items():
+			print "Paired wilcoxon-test with ",key,"in the interval",inte,"-",inte+5,":\t",wilcoxon(value[0][inte:inte+5],value[1][inte:inte+5])
+ 
+
 """
 		  ------------------------------------------------
 		 |												  |
-		 |			THE CALL OF OUR ALGORITHMS  	      |
+		 |			THE CALL OF OUR 			  	      |
+		 |			ALGORITHMS AND WILCOXON				  |
 		 |												  |
 		  ------------------------------------------------
 """
@@ -154,6 +174,17 @@ print "Running the algorithms on the data \n------------------------------------
 fullacc = runalgos(prepared_train,prepared_test,algos) #list of list of lists: If you want KNN on dataset1 from split 400 then write: fullacc[2][0][0]
 print "Done."
 
+print "Running the wilcoxon test to check for significant differences"
+#Here we put the results in a variable with the respecive name of the algorithm
+for i in range(len(fullacc)):
+    for j in range(len(fullacc)):
+        KNN_results.append(fullacc[i][j][0])
+        PER_results.append(fullacc[i][j][1])
+        SVC_results.append(fullacc[i][j][2])
+dictresult = {'KNN/PER' : (KNN_results,PER_results), 'KNN/SVC' : (KNN_results,SVC_results), 'SVC/PER' : (SVC_results,PER_results)}
+wilcox(dictresult,interval)
+print "Done."
+
 """
 		  ------------------------------------------------
 		 |												  |
@@ -161,3 +192,4 @@ print "Done."
 		 |												  |
 		  ------------------------------------------------
 """
+
