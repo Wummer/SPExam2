@@ -113,7 +113,7 @@ def runalgos(train,test,algos):
 		X_test = test[s][::2]
 		y_test = test[s][1::2]
 		results = []
-		print "\n********	***** Split:",s+1,"***************\n"
+		print "\n************* Split:",s+1,"***************\n"
 
 		#Iterate over every training set
 		for i in range(len(X_train)):
@@ -153,7 +153,6 @@ print "Done."
 print "Running the algorithms on the data \n--------------------------------------------"
 fullacc = runalgos(prepared_train,prepared_test,algos) #list of list of lists: If you want KNN on dataset1 from split 400 then write: fullacc[2][0][0]
 print "Done."
-print fullacc[2][0][0]
 
 """
 		  ------------------------------------------------
