@@ -1,7 +1,8 @@
 #coding: utf-8
 import sklearn
 import glob
-import numpy
+import numpy as np
+import matplotlib.pyplot as plt 
 from sklearn import datasets
 from scipy.stats import wilcoxon
 from sklearn.feature_extraction.text import CountVectorizer as Vectorizer
@@ -21,7 +22,7 @@ from sklearn.linear_model import Perceptron as PER
 		  ------------------------------------------------
 """
  #Here we create our function variables
-KNN = KNN(n_neighbors=1)
+KNN = KNN(n_neighbors=3)
 PER = PER()
 SVC = SVC()
 vec = Vectorizer()
@@ -34,6 +35,11 @@ KNN_results = []
 PER_results = []
 SVC_results = []
 interval = [0,5,10,15,20]
+
+#Variables needed for drawing graphs
+KNN_learning=[]
+PER_learning=[]	
+SVC_learning=[]
 
 #Here we open 3 file data and 2 datasets from SKlearn
 path1 = ("data/my_books/")
@@ -149,12 +155,43 @@ def wilcox(dictresult,interval):
 	#Here we print the p-value for the entire result
 	for key,value in dictresult.items():
 		print "Paired wilcoxon-test with ",key,":\t",wilcoxon(value[0],value[1])
+	
+	print "--------------------------------------\n"
 
 	#Here we print the p-value for every learning split
 	for inte in interval:
 		for key,value in dictresult.items():
 			print "Paired wilcoxon-test with ",key,"in the interval",inte,"-",inte+5,":\t",wilcoxon(value[0][inte:inte+5],value[1][inte:inte+5])
  
+"""
+		  ------------------------------------------------
+		 |												  |
+		 |			DEFINING GRAPH FUNCTIONS		      |
+		 |												  |
+		  ------------------------------------------------
+"""
+
+
+# Here we draw the learning curves
+def Drawlearning(name, KNN_learning, PER_learning, SVC_learning):
+    Sample_size=[100,200,400,800,1400]
+    fig, ax = plt.subplots()
+    line_KNN=plt.plot(Sample_size,KNN_learning,'k',label="3 Nearest Neighbor")
+    line_PER=plt.plot(Sample_size,PER_learning,'k',label='Perceptron')
+    line_SVC=plt.plot(Sample_size, SVC_learning,'k',label='Support vector classifier')
+    plt.setp(line_KNN, color='r')
+    plt.setp(line_PER, color='g')
+    plt.setp(line_SVC, color='b')
+    plt.axis([100,1500,0,1])
+    legend=ax.legend(loc='best')
+    frame=legend.get_frame()
+    frame.set_facecolor('0.8')
+
+    ax.set_xlabel('The number of samples')
+    ax.set_ylabel('Accuracy')
+    ax.set_title(name)
+
+
 
 """
 		  ------------------------------------------------
@@ -181,6 +218,11 @@ for i in range(len(fullacc)):
         KNN_results.append(fullacc[i][j][0])
         PER_results.append(fullacc[i][j][1])
         SVC_results.append(fullacc[i][j][2])
+        #For the learning curve
+        KNN_learning.append(fullacc[j][i][0])
+     	PER_learning.append(fullacc[j][i][1])
+     	SVC_learning.append(fullacc[j][i][2])
+
 dictresult = {'KNN/PER' : (KNN_results,PER_results), 'KNN/SVC' : (KNN_results,SVC_results), 'SVC/PER' : (SVC_results,PER_results)}
 wilcox(dictresult,interval)
 print "Done."
@@ -188,8 +230,39 @@ print "Done."
 """
 		  ------------------------------------------------
 		 |												  |
-		 |			FANCY GRAPHS GO HERE  			      |
+		 |			THE CALL OF OUR FANCY GRAPHS	      |
 		 |												  |
 		  ------------------------------------------------
 """
+
+# Here we draw the bar graphy
+Num_datasets=5
+ind= np.arange(Num_datasets)
+width=0.15
+
+fig, ax = plt.subplots()
+rects1 = ax.bar(ind, KNN_results[-5:], width, color='r')
+rects2 = ax.bar(ind+width, PER_results[-5:], width, color='y')
+rects3 = ax.bar(ind+2*width,SVC_results[-5:], width, color='b') 
+
+ax.set_ylabel('Accuracy')
+ax.set_title('Accuracy Result')
+ax.set_ylim(0,1)
+ax.set_xticks(ind+2*width)
+
+ax.set_xticklabels(('my_books', 'my_electronics', 'my_dvd', '20newsgroups_1', '20newsgroup_2'))
+ax.legend( (rects1[0], rects2[0],rects3[0]), ('3 Nearest Neighbor', 'Perceptron', 'Support Vector Classifier'), loc='best' )
+
+#Here we draw the learning curves
+for i in range(0,21,5):
+   if i==0:name='my_books'
+   if i==5:name='my_electronics'
+   if i==10:name='my_dvd'
+   if i==15:name='20newsgroups_1'
+   if i==20:name='20newsgroups_2'
+   Drawlearning(name, KNN_learning[i:i+len(fullacc)],PER_learning[i:i+len(fullacc)],SVC_learning[i:i+len(fullacc)])
+
+plt.show()
+           
+
 
