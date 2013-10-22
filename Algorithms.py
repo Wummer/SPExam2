@@ -22,7 +22,7 @@ from sklearn.linear_model import Perceptron as PER
 		  ------------------------------------------------
 """
  #Here we create our function variables
-KNN = KNN(n_neighbors=3)
+KNN = KNN(n_neighbors=1)
 PER = PER()
 SVC = SVC()
 vec = Vectorizer()
