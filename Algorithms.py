@@ -176,7 +176,7 @@ def wilcox(dictresult,interval):
 def Drawlearning(name, KNN_learning, PER_learning, SVC_learning):
     Sample_size=[100,200,400,800,1400]
     fig, ax = plt.subplots()
-    line_KNN=plt.plot(Sample_size,KNN_learning,'k',label="3 Nearest Neighbor")
+    line_KNN=plt.plot(Sample_size,KNN_learning,'k',label="1 Nearest Neighbor")
     line_PER=plt.plot(Sample_size,PER_learning,'k',label='Perceptron')
     line_SVC=plt.plot(Sample_size, SVC_learning,'k',label='Support vector classifier')
     plt.setp(line_KNN, color='r')
@@ -251,7 +251,7 @@ ax.set_ylim(0,1)
 ax.set_xticks(ind+2*width)
 
 ax.set_xticklabels(('my_books', 'my_electronics', 'my_dvd', '20newsgroups_1', '20newsgroup_2'))
-ax.legend( (rects1[0], rects2[0],rects3[0]), ('3 Nearest Neighbor', 'Perceptron', 'Support Vector Classifier'), loc='best' )
+ax.legend( (rects1[0], rects2[0],rects3[0]), ('1 Nearest Neighbor', 'Perceptron', 'Support Vector Classifier'), loc='lower left' )
 
 #Here we draw the learning curves
 for i in range(0,21,5):
@@ -263,6 +263,3 @@ for i in range(0,21,5):
    Drawlearning(name, KNN_learning[i:i+len(fullacc)],PER_learning[i:i+len(fullacc)],SVC_learning[i:i+len(fullacc)])
 
 plt.show()
-           
-
-
